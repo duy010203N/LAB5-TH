@@ -48,12 +48,66 @@ public class Main {
 						System.out.println("Ma phong da ton tai!");
 					}
 					break;
-					case 2:
-						Sytem.out.print("Nhap so may tinh:");
-				}
-
-
-			}
-		}
-	}
+					 case 2:
+                   System.out.print("Nhap ma phong can tim: ");
+                   String maPhongTimKiem = System.console().readLine();
+                   PhongHoc phongHocTimKiem = quanLyPhongHoc.timPhongHocTheoMa(maPhongTimKiem);
+                   if (phongHocTimKiem != null) {
+                       System.out.println(phongHocTimKiem);
+                   } else {
+                       System.out.println("Khong tim thay phong hoc!");
+                   }
+                   break;
+               case 3:
+                   quanLyPhongHoc.inToanBoDanhSachPhongHoc();
+                   break;
+               case 4:
+                   quanLyPhongHoc.inDanhSachPhongHocDatChuan();
+                   break;
+               case 5:
+                   quanLyPhongHoc.sapXepTheoDayNhaTangDan();
+                   System.out.println("Da sap xep danh sach tang dan theo day nha!");
+                   break;
+               case 6:
+                   quanLyPhongHoc.sapXepTheoDienTichGiamDan();
+                   System.out.println("Da sap xep danh sach giam dan theo dien tich!");
+                   break;
+               case 7:
+                   quanLyPhongHoc.sapXepTheoSoBongDenTangDan();
+                   System.out.println("Da sap xep danh sach tang dan theo so bong den!");
+                   break;
+               case 8:
+                   System.out.print("Nhap ma phong may tinh can cap nhat: ");
+                   String maPhongCapNhat = System.console().readLine();
+                   System.out.print("Nhap so may tinh moi: ");
+                   int soMayTinhMoi = Integer.parseInt(System.console().readLine());
+                   quanLyPhongHoc.capNhatSoMayTinh(maPhongCapNhat, soMayTinhMoi);
+                   System.out.println("Da cap nhat so may tinh cho phong hoc!");
+                   break;
+               case 9:
+                   System.out.print("Nhap ma phong can xoa: ");
+                   String maPhongXoa = System.console().readLine();
+                   if (quanLyPhongHoc.xoaPhongHoc(maPhongXoa)) {
+                       System.out.println("Xoa phong hoc thanh cong!");
+                   } else {
+                       System.out.println("Khong tim thay phong hoc can xoa!");
+                   }
+                   break;
+               case 10:
+                   quanLyPhongHoc.inTongSoPhongHoc();
+                   break;
+               case 11:
+                   System.out.print("Nhap so may tinh: ");
+                   int soMayTinhIn = Integer.parseInt(System.console().readLine());
+                   quanLyPhongHoc.inDanhSachPhongMayCoSoMayTinh(soMayTinhIn);
+                   break;
+               case 0:
+                   System.out.println("Ket thuc chuong trinh!");
+                   break;
+               default:
+                   System.out.println("Lua chon khong hop le!");
+                   break;
+           }
+       } while (luaChon != 0);
+   }
 }
